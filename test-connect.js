@@ -4,7 +4,7 @@ var test = boombox(require('tape'));
 module.exports = function(WebSocket, uri, opts) {
   var socket;
 
-  test('create the socket connection', function(t) {
+  test('create the socket connection: ' + uri, function(t) {
     t.plan(1);
 
     // create a websocket connection to the target server

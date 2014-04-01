@@ -1,6 +1,7 @@
 var nopt = require('nopt');
+var url = require('url');
 var knownOpts = {
-  server: String
+  uri: url
 };
 var shorthands = {};
 
