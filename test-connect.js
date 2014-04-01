@@ -13,8 +13,16 @@ module.exports = function(WebSocket, uri, opts) {
   });
 
   test('socket opened', function(t) {
+    var handleOpen = t.pass.bind(t, 'socket open');
+
     t.plan(1);
-    socket.once('open', t.pass.bind(t, 'socket open'));
+
+    if (typeof socket.addEventListener == 'function') {
+      socket.addEventListener('open', handleOpen);
+    }
+    else {
+      socket.once('open', handleOpen);
+    }
   });
 
   test('close connection', function(t) {

@@ -18,12 +18,6 @@ var reTrailingSlash = /\/$/;
   git clone https://github.com/rtc-io/rtcio-signaller-compatibility.git
   cd rtcio-signaller-compatibility
   npm install
-  node test.js --uri http://rtc.io/switchboard/primus
-  ```
-
-  This also works if you specify a `ws` or `wss` endpoint:
-
-  ```
   node test.js --uri ws://rtc.io/switchboard/primus
   ```
 
@@ -35,7 +29,11 @@ module.exports = function(opts) {
     (typeof WebSocket != 'undefined' ? WebSocket : require('ws'));
 
   // initialise the target uri
-  var uri = (opts || {}).uri || 'http://rtc.io/switchboard/primus';
+  var uri = (opts || {}).uri || 'ws://rtc.io/switchboard/primus';
 
-  require('./test-connect')(WS, uri);
+  // can we establish a websocket connection
+  require('./test-connect')(WS, uri, opts);
+
+  // can we connect to a room on the server
+  require('./test-announce')(WS, uri, opts);
 };
