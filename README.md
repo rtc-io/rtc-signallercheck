@@ -21,6 +21,12 @@ npm install
 node test.js --uri http://rtc.io/switchboard/primus
 ```
 
+This also works if you specify a `ws` or `wss` endpoint:
+
+```
+node test.js --uri ws://rtc.io/switchboard/primus
+```
+
 ## License(s)
 
 ### Apache 2.0

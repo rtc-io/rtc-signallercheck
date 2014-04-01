@@ -20,7 +20,13 @@ var reTrailingSlash = /\/$/;
   npm install
   node test.js --uri http://rtc.io/switchboard/primus
   ```
-  
+
+  This also works if you specify a `ws` or `wss` endpoint:
+
+  ```
+  node test.js --uri ws://rtc.io/switchboard/primus
+  ```
+
 **/
 
 module.exports = function(opts) {
