@@ -1,12 +1,15 @@
 var boombox = require('boombox');
 var test = boombox(require('tape'));
 var signaller = require('rtc-signaller');
-var WebSocket = require('ws');
 var reTrailingSlash = /\/$/;
 
 module.exports = function(opts) {
   // initialise the server
   var server = (opts || {}).server || 'http://rtc.io/switchboard';
+
+  // determine the WebSocket constructor
+  var WS = (opts || {}).WebSocket ||
+    (typeof WebSocket != 'undefined' ? WebSocket : require('ws'));
 
   // initialise the ws endpoint
   var endpoint = (opts || {}).endpoint || '/primus';
@@ -16,8 +19,8 @@ module.exports = function(opts) {
     t.plan(1);
 
     // create a websocket connection to the target server
-    socket = new WebSocket(server.replace(reTrailingSlash, '') + endpoint);
-    t.ok(socket instanceof WebSocket, 'websocket instance created');
+    socket = new WS(server.replace(reTrailingSlash, '') + endpoint);
+    t.ok(socket instanceof WS, 'websocket instance created');
   });
 
   test('socket opened', function(t) {
