@@ -3,11 +3,7 @@
 This is a small test suite that can be used to test whether a signalling
 server behaves as expected for working with the `rtc-signaller` module.
 
-
-[![NPM](https://nodei.co/npm/rtcio-signaller-compatibility.png)](https://nodei.co/npm/rtcio-signaller-compatibility/)
-
-
-![unstable](https://img.shields.io/badge/stability-unstable-yellowgreen.svg)
+![experimental](https://img.shields.io/badge/stability-experimental-red.svg)
 
 ## Usage
 
