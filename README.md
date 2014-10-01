@@ -19,7 +19,9 @@ node test.js --uri https://switchboard.rtc.io/
 
 This also works if you specify a ws or wss endpoint:
 
+```
 node test.js --uri wss://switchboard.rtc.io/primus
+```
 
 ## License(s)
 

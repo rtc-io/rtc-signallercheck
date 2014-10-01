@@ -22,7 +22,10 @@ var reTrailingSlash = /\/$/;
 
   This also works if you specify a ws or wss endpoint:
 
+  ```
   node test.js --uri wss://switchboard.rtc.io/primus
+  ```
+
 **/
 
 module.exports = function(opts) {
