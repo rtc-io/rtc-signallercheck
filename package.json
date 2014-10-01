@@ -23,10 +23,10 @@
   "homepage": "https://github.com/rtc-io/rtcio-signaller-compatibility",
   "dependencies": {
     "boombox": "0.0.1",
-    "rtc-signaller": "^0.19.2",
-    "tape": "^2.12.1",
     "nopt": "^2.2.0",
-    "ws": "^0.4.31",
-    "uuid": "^1.4.1"
+    "rtc-signaller": "^3.1.0",
+    "tape": "^3.0.0",
+    "uuid": "^2.0.1",
+    "ws": "^0.4.32"
   }
 }
