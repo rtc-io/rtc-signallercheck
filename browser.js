@@ -1,3 +1,3 @@
 require('./index.js')({
-  uri: 'http://localhost:3000/'
+  uri: 'https://switchboard.rtc.io/'
 });
