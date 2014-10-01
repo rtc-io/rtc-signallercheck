@@ -1,6 +1,5 @@
 var boombox = require('boombox');
 var test = boombox(require('tape'));
-var signaller = require('rtc-signaller');
 var reTrailingSlash = /\/$/;
 
 /**
@@ -24,16 +23,15 @@ var reTrailingSlash = /\/$/;
 **/
 
 module.exports = function(opts) {
-  // determine the WebSocket constructor
-  var WS = (opts || {}).WebSocket ||
-    (typeof WebSocket != 'undefined' ? WebSocket : require('ws'));
-
   // initialise the target uri
-  var uri = (opts || {}).uri || 'ws://rtc.io/switchboard/primus';
+  var uri = (opts || {}).uri || 'wss://switchboard.rtc.io/rtc.io/primus';
 
-  // can we establish a websocket connection
-  require('./test-connect')(WS, uri, opts);
+  // can we establish a signaller connection
+  require('./test-connect')(uri, opts);
 
-  // can we connect to a room on the server
-  require('./test-announce')(WS, uri, opts);
+  // can we communicate
+  require('./test-multiannounce')(uri, opts);
+
+  // can we send messages to each other
+  require('./test-broadcast')(uri, opts);
 };

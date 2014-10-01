@@ -1,33 +1,38 @@
 var boombox = require('boombox');
 var test = boombox(require('tape'));
+var uuid = require('uuid');
 
-module.exports = function(WebSocket, uri, opts) {
-  var socket;
+module.exports = function(uri, opts) {
+  var signaller;
 
-  test('create the socket connection: ' + uri, function(t) {
+  test('create the signaller: ' + uri, function(t) {
     t.plan(1);
 
-    // create a websocket connection to the target server
-    socket = new WebSocket(uri);
-    t.ok(socket instanceof WebSocket, 'websocket instance created');
+    signaller = require('rtc-signaller')(uri);
+    signaller.once('connected', function() {
+      t.pass('signaller connected');
+    });
   });
 
-  test('socket opened', function(t) {
-    var handleOpen = t.pass.bind(t, 'socket open');
+  test('can announce and receive a room info reply', function(t) {
+    var roomId = uuid.v4();
 
-    t.plan(1);
+    t.plan(3);
+    signaller.once('roominfo', function(data) {
+      t.ok(data, 'got room info data');
+      t.equal(data.memberCount, 1, 'new connection is the only member');
+    });
 
-    if (typeof socket.addEventListener == 'function') {
-      socket.addEventListener('open', handleOpen);
-    }
-    else {
-      socket.once('open', handleOpen);
-    }
+    signaller.announce({ room: roomId });
+    t.pass('sent announce');
   });
 
   test('close connection', function(t) {
     t.plan(1);
-    socket.close();
-    t.pass('closed');
+    signaller.once('disconnected', function() {
+      t.pass('closed');
+    });
+
+    signaller.close();
   });
 };
