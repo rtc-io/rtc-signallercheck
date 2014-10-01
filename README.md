@@ -3,7 +3,7 @@
 This is a small test suite that can be used to test whether a signalling
 server behaves as expected for working with the `rtc-signaller` module.
 
-![experimental](https://img.shields.io/badge/stability-experimental-red.svg)
+[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) 
 
 ## Usage
 
@@ -14,14 +14,12 @@ you can clone the repo and run the test from the command line:
 git clone https://github.com/rtc-io/rtcio-signaller-compatibility.git
 cd rtcio-signaller-compatibility
 npm install
-node test.js --uri http://rtc.io/switchboard/primus
+node test.js --uri https://switchboard.rtc.io/
 ```
 
-This also works if you specify a `ws` or `wss` endpoint:
+This also works if you specify a ws or wss endpoint:
 
-```
-node test.js --uri ws://rtc.io/switchboard/primus
-```
+node test.js --uri wss://switchboard.rtc.io/primus
 
 ## License(s)
 
