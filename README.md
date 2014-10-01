@@ -11,16 +11,14 @@ Eventually this will be hosted as a webpage somewhere, but in the meantime
 you can clone the repo and run the test from the command line:
 
 ```
-git clone https://github.com/rtc-io/rtcio-signaller-compatibility.git
-cd rtcio-signaller-compatibility
-npm install
-node test.js --uri https://switchboard.rtc.io/
+npm install -g rtc-signallercheck
+signallercheck --uri https://switchboard.rtc.io/
 ```
 
 This also works if you specify a ws or wss endpoint:
 
 ```
-node test.js --uri wss://switchboard.rtc.io/primus
+signallercheck --uri wss://switchboard.rtc.io/primus
 ```
 
 ## License(s)
