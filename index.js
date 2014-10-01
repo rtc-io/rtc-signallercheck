@@ -3,7 +3,7 @@ var test = boombox(require('tape'));
 var reTrailingSlash = /\/$/;
 
 /**
-  # rtcio-signaller-compatibility
+  # rtc-signallercheck
 
   This is a small test suite that can be used to test whether a signalling
   server behaves as expected for working with the `rtc-signaller` module.

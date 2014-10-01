@@ -1,7 +1,10 @@
-# rtcio-signaller-compatibility
+# rtc-signallercheck
 
 This is a small test suite that can be used to test whether a signalling
 server behaves as expected for working with the `rtc-signaller` module.
+
+
+[![NPM](https://nodei.co/npm/rtc-signallercheck.png)](https://nodei.co/npm/rtc-signallercheck/)
 
 [![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) 
 
