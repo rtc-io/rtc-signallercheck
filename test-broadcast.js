@@ -45,16 +45,16 @@ module.exports = function(uri, opts) {
     });
   });
 
-  test('send message from 0', function(t) {
-    t.plan(signallers.length - 1);
-    signallers.slice(1).forEach(function(s, idx) {
-      s.once('data', function(parts) {
-        t.ok(Array.isArray(parts) && parts.length === 1 && (parts[0] === 'hello'), 'signaller ' + idx + ' got hello data');
-      });
-    });
+//   test('send message from 0', function(t) {
+//     t.plan(signallers.length - 1);
+//     signallers.slice(1).forEach(function(s, idx) {
+//       s.once('data', function(parts) {
+//         t.ok(Array.isArray(parts) && parts.length === 1 && (parts[0] === 'hello'), 'signaller ' + idx + ' got hello data');
+//       });
+//     });
 
-    signallers[0].send('hello');
-  });
+//     signallers[0].send('hello');
+//   });
 
   test('send command from 0', function(t) {
     t.plan(signallers.length - 1);
