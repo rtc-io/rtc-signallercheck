@@ -38,4 +38,7 @@ module.exports = function(opts) {
 
   // can we send messages to each other
   require('./test-broadcast')(uri, opts);
+
+  // concurency test
+  require('./test-concurrency')(uri, opts);
 };
