@@ -1,6 +1,6 @@
 {
   "name": "rtc-signallercheck",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "This is a suite of tests that can test that a signalling server is compatible with rtc-signaller",
   "preferGlobal": true,
   "bin": {
