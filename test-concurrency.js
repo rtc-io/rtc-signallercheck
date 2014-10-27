@@ -4,7 +4,7 @@ var pluck = require('whisk/pluck');
 var uuid = require('uuid');
 var signaller = require('rtc-signaller');
 
-module.exports = function(uri, opts) {
+module.exports = function(messenger, opts) {
   var room = uuid();
   var signallers = [];
   var signallerCount = (opts || {}).concurrency || 50;
@@ -14,7 +14,7 @@ module.exports = function(uri, opts) {
 
     function connectNext() {
       var idx;
-      var sig = signaller(uri).once('connected', function() {
+      var sig = signaller(messenger).once('connected', function() {
         t.pass('signaller ' + idx + ' connected');
 
         if (signallers.length < signallerCount) {

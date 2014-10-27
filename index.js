@@ -28,17 +28,17 @@ var reTrailingSlash = /\/$/;
 
 module.exports = function(opts) {
   // initialise the target uri
-  var uri = (opts || {}).uri || 'https://switchboard.rtc.io/';
+  var messenger = require('rtc-switchboard-messenger')((opts || {}).uri || 'https://switchboard.rtc.io/');
 
   // can we establish a signaller connection
-  require('./test-connect')(uri, opts);
+  require('./test-connect')(messenger, opts);
 
   // can we communicate
-  require('./test-multiannounce')(uri, opts);
+  require('./test-multiannounce')(messenger, opts);
 
   // can we send messages to each other
-  require('./test-broadcast')(uri, opts);
+  require('./test-broadcast')(messenger, opts);
 
   // concurency test
-  require('./test-concurrency')(uri, opts);
+  require('./test-concurrency')(messenger, opts);
 };

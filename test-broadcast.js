@@ -4,15 +4,15 @@ var uuid = require('uuid');
 var signaller = require('rtc-signaller');
 var times = require('whisk/times');
 
-module.exports = function(uri, opts) {
-  var signallers = [uri, uri];
+module.exports = function(messenger, opts) {
+  var signallers = [];
   var roomId = uuid.v4();
   var count = (opts || {}).count || 4;
 
   test('create signallers', function(t) {
     t.plan(count);
     signallers = times(count).map(function() {
-      return signaller(uri);
+      return signaller(messenger);
     });
 
     signallers.forEach(function(s, idx) {
@@ -60,7 +60,7 @@ module.exports = function(uri, opts) {
     t.plan(signallers.length - 1);
 
     signallers.slice(1).forEach(function(s, idx) {
-      s.once('hello', t.pass.bind(t, 'signaller ' + idx + ' received hello command'));
+      s.once('message:hello', t.pass.bind(t, 'signaller ' + idx + ' received hello command'));
     });
 
     signallers[0].send('/hello');

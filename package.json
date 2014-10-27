@@ -27,7 +27,8 @@
   "dependencies": {
     "boombox": "0.0.1",
     "nopt": "^2.2.1",
-    "rtc-signaller": "^4.0.0",
+    "rtc-signaller": "^5.0.0",
+    "rtc-switchboard-messenger": "^1.0.0",
     "tape": "^3.0.0",
     "uuid": "^2.0.1",
     "whisk": "^0.6.2",

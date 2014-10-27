@@ -3,23 +3,23 @@ var test = boombox(require('tape'));
 var uuid = require('uuid');
 var signaller = require('rtc-signaller');
 
-module.exports = function(uri, opts) {
+module.exports = function(messenger, opts) {
   var signallers = [];
   var roomId = uuid.v4();
 
   test('create signaller:0', function(t) {
     t.plan(2);
-    t.ok(signallers[0] = signaller(uri), 'created');
-    signallers[0].once('init', t.pass.bind(t, 'initialized'));
+    t.ok(signallers[0] = signaller(messenger), 'created');
+    signallers[0].once('connected', t.pass.bind(t, 'connected'));
   });
 
   test('create signaller:1', function(t) {
     t.plan(2);
-    t.ok(signallers[1] = signaller(uri), 'created');
-    signallers[1].once('init', t.pass.bind(t, 'initialized'));
+    t.ok(signallers[1] = signaller(messenger), 'created');
+    signallers[1].once('connected', t.pass.bind(t, 'connected'));
   });
 
-  test('concurrent announce via primus', function(t) {
+  test('concurrent announce via websocket', function(t) {
     t.plan(5);
 
     signallers[1].on('peer:announce', function(data) {

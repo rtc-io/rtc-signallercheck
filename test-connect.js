@@ -2,13 +2,13 @@ var boombox = require('boombox');
 var test = boombox(require('tape'));
 var uuid = require('uuid');
 
-module.exports = function(uri, opts) {
+module.exports = function(messenger, opts) {
   var signaller;
 
-  test('create the signaller: ' + uri, function(t) {
+  test('create the signaller', function(t) {
     t.plan(1);
 
-    signaller = require('rtc-signaller')(uri);
+    signaller = require('rtc-signaller')(messenger);
     signaller.once('connected', function() {
       t.pass('signaller connected');
     });
@@ -18,7 +18,7 @@ module.exports = function(uri, opts) {
     var roomId = uuid.v4();
 
     t.plan(3);
-    signaller.once('roominfo', function(data) {
+    signaller.once('message:roominfo', function(data) {
       t.ok(data, 'got room info data');
       t.equal(data.memberCount, 1, 'new connection is the only member');
     });
