@@ -3,6 +3,7 @@
   "version": "1.2.1",
   "description": "This is a suite of tests that can test that a signalling server is compatible with rtc-signaller",
   "preferGlobal": true,
+  "stability": "unstable",
   "bin": {
     "signallercheck": "./bin/check"
   },
