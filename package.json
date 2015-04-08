@@ -26,12 +26,12 @@
   "homepage": "https://github.com/rtc-io/rtcio-signaller-compatibility",
   "dependencies": {
     "boombox": "0.0.1",
-    "nopt": "^2.2.1",
-    "rtc-signaller": "^5.0.0",
+    "nopt": "^3.0.1",
+    "rtc-signaller": "^6.1.0",
     "rtc-switchboard-messenger": "^1.0.0",
-    "tape": "^3.0.0",
+    "tape": "^4.0.0",
     "uuid": "^2.0.1",
-    "whisk": "^0.6.2",
-    "ws": "^0.4.32"
+    "whisk": "^1.1.0",
+    "ws": "^0.7.1"
   }
 }
