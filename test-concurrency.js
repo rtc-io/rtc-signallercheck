@@ -51,7 +51,7 @@ module.exports = function(messenger, opts) {
       }
 
       sig.on('peer:announce', handleAnnounce);
-      sig.announce({ room: uuid });
+      sig.announce({ room: room });
     });
   });
 
