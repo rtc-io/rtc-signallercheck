@@ -6,7 +6,7 @@ server behaves as expected for working with the `rtc-signaller` module.
 
 [![NPM](https://nodei.co/npm/rtc-signallercheck.png)](https://nodei.co/npm/rtc-signallercheck/)
 
-[![experimental](https://img.shields.io/badge/stability-experimental-red.svg)](https://github.com/dominictarr/stability#experimental) 
+[![unstable](https://img.shields.io/badge/stability-unstable-yellowgreen.svg)](https://github.com/dominictarr/stability#unstable) [![bitHound Score](https://www.bithound.io/github/rtc-io/rtcio-signaller-compatibility/badges/score.svg)](https://www.bithound.io/github/rtc-io/rtcio-signaller-compatibility) 
 
 ## Usage
 
